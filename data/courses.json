@@ -1,0 +1,41 @@
+{
+  "Software Developer": [
+    "Python",
+    "Git & GitHub",
+    "SQL",
+    "JavaScript",
+    "DSA"
+  ],
+
+  "AI Engineer": [
+    "Machine Learning",
+    "Deep Learning",
+    "TensorFlow",
+    "Computer Vision",
+    "Generative AI"
+  ],
+
+  "Data Scientist": [
+    "Statistics",
+    "Python for Data Science",
+    "Machine Learning",
+    "SQL",
+    "Power BI"
+  ],
+
+  "Cyber Security Engineer": [
+    "Linux",
+    "Networking",
+    "Ethical Hacking",
+    "OWASP",
+    "Burp Suite"
+  ],
+
+  "Cloud Engineer": [
+    "AWS",
+    "Azure",
+    "Docker",
+    "Kubernetes",
+    "Terraform"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "Software Developer": {
+    "roadmap": [
+      "Week 1 - Learn Git & GitHub",
+      "Week 2 - Learn SQL",
+      "Week 3 - HTML & CSS",
+      "Week 4 - JavaScript",
+      "Week 5 - Data Structures & Algorithms",
+      "Week 6 - Build a Flask Project",
+      "Week 7 - Deploy Your Project",
+      "Week 8 - Mock Interviews"
+    ]
+  },
+
+  "AI Engineer": {
+    "roadmap": [
+      "Week 1 - Advanced Python",
+      "Week 2 - NumPy & Pandas",
+      "Week 3 - Machine Learning",
+      "Week 4 - Deep Learning",
+      "Week 5 - TensorFlow",
+      "Week 6 - Build an AI Project",
+      "Week 7 - Deploy AI Application",
+      "Week 8 - AI Interview Preparation"
+    ]
+  },
+
+  "Data Scientist": {
+    "roadmap": [
+      "Week 1 - Python for Data Science",
+      "Week 2 - Statistics & Probability",
+      "Week 3 - Pandas & NumPy",
+      "Week 4 - Data Visualization",
+      "Week 5 - Machine Learning",
+      "Week 6 - SQL",
+      "Week 7 - Data Science Project",
+      "Week 8 - Interview Preparation"
+    ]
+  },
+
+  "Cyber Security Engineer": {
+    "roadmap": [
+      "Week 1 - Linux Basics",
+      "Week 2 - Computer Networking",
+      "Week 3 - Python for Security",
+      "Week 4 - Web Security",
+      "Week 5 - OWASP Top 10",
+      "Week 6 - Burp Suite",
+      "Week 7 - Capture The Flag Practice",
+      "Week 8 - Security Interview Preparation"
+    ]
+  },
+
+  "Cloud Engineer": {
+    "roadmap": [
+      "Week 1 - Linux",
+      "Week 2 - Networking",
+      "Week 3 - Cloud Fundamentals",
+      "Week 4 - AWS Basics",
+      "Week 5 - Docker",
+      "Week 6 - Kubernetes Basics",
+      "Week 7 - Deploy a Cloud Project",
+      "Week 8 - Cloud Interview Preparation"
+    ]
+  }
+}

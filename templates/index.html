@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPilot AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- Bottom wavy line doodle -->
+<div class="doodle-strip">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="doodle-svg">
+        <path d="M0,60 Q150,10 300,60 T600,60 T900,60 T1200,60"
+              stroke="#4f6bff" stroke-width="2" fill="none" opacity="0.4"/>
+        <circle cx="100" cy="40" r="6" fill="#ff6b6b" opacity="0.6"/>
+        <circle cx="400" cy="80" r="4" fill="#4ecdc4" opacity="0.6"/>
+        <circle cx="700" cy="30" r="5" fill="#ffd93d" opacity="0.6"/>
+        <circle cx="1000" cy="70" r="6" fill="#a78bfa" opacity="0.6"/>
+        <text x="200" y="100" font-size="20" fill="#ffd93d" opacity="0.5">✦</text>
+        <text x="550" y="40" font-size="16" fill="#4f6bff" opacity="0.5">✦</text>
+        <text x="850" y="95" font-size="18" fill="#ff6b6b" opacity="0.5">✦</text>
+        <path d="M50,100 q20,-20 40,0 t40,0" stroke="#4ecdc4" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M1050,30 q20,-20 40,0 t40,0" stroke="#a78bfa" stroke-width="2" fill="none" opacity="0.5"/>
+    </svg>
+</div>
+
+<!-- Top-right graduation cap doodle -->
+<div class="doodle-corner">
+    <svg viewBox="0 0 80 70" class="doodle-corner-svg" xmlns="http://www.w3.org/2000/svg">
+        <g opacity="0.6">
+            <path d="M5,20 L40,5 L75,20 L40,35 Z" fill="#4ecdc4" opacity="0.3" stroke="#4ecdc4" stroke-width="2.5"/>
+            <path d="M20,25 L20,42 Q40,52 60,42 L60,25" fill="none" stroke="#4ecdc4" stroke-width="2.5"/>
+            <line x1="70" y1="21" x2="70" y2="40" stroke="#4ecdc4" stroke-width="2"/>
+            <circle cx="70" cy="42" r="2.5" fill="#4ecdc4"/>
+        </g>
+    </svg>
+</div>
+
+<nav>
+    <h2>🚀 CareerPilot AI</h2>
+</nav>
+
+<section class="hero">
+
+    <h1>Your AI Career Mentor</h1>
+
+    <p>
+        Analyze your skills, discover career paths,
+        identify skill gaps, and receive a personalized learning roadmap.
+    </p>
+
+    <a href="{{ url_for('login') }}">
+        <button type="button">Get Started</button>
+    </a>
+
+</section>
+
+</body>
+</html>

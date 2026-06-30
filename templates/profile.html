@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Profile</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>Career Profile</h1>
+
+    <form action="/analyze" method="POST">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required>
+
+        <!-- DEGREE DROPDOWN -->
+        <select name="degree" required>
+            <option value="">Choose Degree</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="Polytechnic">Polytechnic</option>
+        </select>
+
+        <input
+            type="text"
+            name="branch"
+            placeholder="Branch">
+
+        <!-- YEAR DROPDOWN -->
+        <select name="year" required>
+            <option value="">Choose Year</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+        </select>
+
+        <input
+            type="text"
+            name="skills"
+            placeholder="Current Skills (Python, HTML...)">
+
+        <select name="career" required>
+            <option value="">Choose Career Goal</option>
+            <option value="Software Developer">Software Developer</option>
+            <option value="AI Engineer">AI Engineer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Cyber Security Engineer">Cyber Security Engineer</option>
+            <option value="Cloud Engineer">Cloud Engineer</option>
+        </select>
+
+        <button type="submit">Analyze My Career</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "Software Developer": [
+    "Student Management System",
+    "Portfolio Website",
+    "Task Manager",
+    "Weather App",
+    "Expense Tracker"
+  ],
+
+  "AI Engineer": [
+    "AI Chatbot",
+    "Image Classifier",
+    "Face Recognition System",
+    "Movie Recommendation System",
+    "AI Resume Analyzer"
+  ],
+
+  "Data Scientist": [
+    "Sales Prediction",
+    "House Price Prediction",
+    "Customer Segmentation",
+    "Stock Market Analysis",
+    "Data Dashboard"
+  ],
+
+  "Cyber Security Engineer": [
+    "Password Strength Checker",
+    "Port Scanner",
+    "Network Monitor",
+    "Phishing Detection Tool",
+    "Log Analyzer"
+  ],
+
+  "Cloud Engineer": [
+    "AWS Static Website",
+    "Dockerized Flask App",
+    "Kubernetes Deployment",
+    "CI/CD Pipeline",
+    "Cloud Monitoring Dashboard"
+  ]
+}

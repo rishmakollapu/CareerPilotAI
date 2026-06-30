@@ -1,0 +1,62 @@
+{
+  "Software Developer": {
+    "required_skills": [
+      "Python",
+      "Git",
+      "SQL",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "DSA"
+    ]
+  },
+
+  "AI Engineer": {
+    "required_skills": [
+      "Python",
+      "Machine Learning",
+      "Deep Learning",
+      "SQL",
+      "Git",
+      "TensorFlow",
+      "NumPy",
+      "Pandas"
+    ]
+  },
+
+  "Data Scientist": {
+    "required_skills": [
+      "Python",
+      "Statistics",
+      "NumPy",
+      "Pandas",
+      "SQL",
+      "Machine Learning",
+      "Data Visualization"
+    ]
+  },
+
+  "Cyber Security Engineer": {
+    "required_skills": [
+      "Python",
+      "Linux",
+      "Networking",
+      "Cryptography",
+      "Git",
+      "OWASP",
+      "Burp Suite"
+    ]
+  },
+
+  "Cloud Engineer": {
+    "required_skills": [
+      "Linux",
+      "Networking",
+      "Git",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Terraform"
+    ]
+  }
+}

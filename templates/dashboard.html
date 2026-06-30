@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPilot AI Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+    <style>
+        body {
+            background-color: #f4f6fa;
+        }
+
+        .stat-card {
+            border-radius: 14px;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            height: 100%;
+        }
+
+        .stat-icon {
+            font-size: 1.8rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem auto;
+        }
+
+        .section-card {
+            border-radius: 14px;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            padding: 0.9rem 1.25rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-body {
+            padding: 1.25rem;
+            background: #fff;
+        }
+
+        .bg-mentor { background-color: #2f6fed; }
+        .bg-missing { background-color: #f5a623; }
+        .bg-courses { background-color: #1ea672; }
+        .bg-projects { background-color: #1c1f26; }
+        .bg-roadmap { background-color: #14b8c4; }
+
+        .skill-pill {
+            background-color: #e74c3c;
+            color: #fff;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .list-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .list-row:last-child {
+            border-bottom: none;
+        }
+
+        .roadmap-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-4">
+
+        {% if analysis %}
+
+        <!-- Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="fw-bold mb-1">👋 Welcome {{ user.name }}</h1>
+                <p class="text-muted mb-0">{{ user.email }}</p>
+            </div>
+            <div class="d-flex gap-2 mt-3 mt-md-0">
+                <a href="/profile" class="btn btn-primary">
+                    <i class="bi bi-pencil-fill me-1"></i> Analyze Again
+                </a>
+                <a href="/resume" class="btn btn-success">
+                    <i class="bi bi-file-earmark-text-fill me-1"></i> Resume Analyzer
+                </a>
+                <a href="/logout" class="btn btn-danger">
+                    <i class="bi bi-box-arrow-right me-1"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="row mb-4 g-3">
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color:#e8f0fe; color:#2f6fed;">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+                    <div class="text-muted">Career Goal</div>
+                    <div class="fs-5 fw-bold">{{ analysis.career }}</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color:#e6f7ef; color:#1ea672;">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <div class="text-muted">Readiness</div>
+                    <div class="fs-5 fw-bold mb-2">{{ analysis.score }}%</div>
+                    <div class="progress" style="height: 8px;">
+                        <div
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: {{ analysis.score }}%;"
+                            aria-valuenow="{{ analysis.score }}"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color:#fdf2e3; color:#f5a623;">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <div class="text-muted">Missing Skills</div>
+                    <div class="fs-5 fw-bold">{{ analysis.missing_skills|length }}</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color:#e6f7fb; color:#14b8c4;">
+                        <i class="bi bi-lightbulb-fill"></i>
+                    </div>
+                    <div class="text-muted">Projects</div>
+                    <div class="fs-5 fw-bold">{{ analysis.projects|length }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Mentor Advice -->
+        <div class="section-card">
+            <div class="section-header bg-mentor">
+                <i class="bi bi-robot"></i> AI Career Mentor
+            </div>
+            <div class="section-body" style="white-space: pre-wrap;">
+                {{ analysis.ai_advice if analysis.ai_advice else "No AI advice available." }}
+            </div>
+        </div>
+
+        <!-- Missing Skills / Courses / Projects -->
+        <div class="row g-3 mb-1">
+            <div class="col-md-4">
+                <div class="section-card h-100">
+                    <div class="section-header bg-missing">
+                        <i class="bi bi-exclamation-triangle-fill"></i> Missing Skills
+                    </div>
+                    <div class="section-body">
+                        {% if analysis.missing_skills %}
+                            {% for skill in analysis.missing_skills %}
+                                <span class="skill-pill">{{ skill }}</span>
+                            {% endfor %}
+                        {% else %}
+                            <span class="badge bg-success p-2">All Required Skills Completed 🎉</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="section-card h-100">
+                    <div class="section-header bg-courses">
+                        <i class="bi bi-book-fill"></i> Recommended Courses
+                    </div>
+                    <div class="section-body">
+                        {% if analysis.courses %}
+                            {% for course in analysis.courses %}
+                                <div class="list-row">
+                                    <i class="bi bi-bookmark-fill text-primary"></i> {{ course }}
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p class="mb-0">No courses available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="section-card h-100">
+                    <div class="section-header bg-projects">
+                        <i class="bi bi-laptop-fill"></i> Recommended Projects
+                    </div>
+                    <div class="section-body">
+                        {% if analysis.projects %}
+                            {% for project in analysis.projects %}
+                                <div class="list-row">
+                                    <i class="bi bi-bookmark-fill text-primary"></i> {{ project }}
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p class="mb-0">No projects available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="section-card">
+            <div class="section-header bg-roadmap">
+                <i class="bi bi-calendar3"></i> Learning Roadmap
+            </div>
+            <div class="section-body">
+                {% if analysis.roadmap %}
+                    <div class="row">
+                        {% for step in analysis.roadmap %}
+                            <div class="col-md-6">
+                                <div class="roadmap-item">
+                                    <i class="bi bi-check-circle-fill text-success"></i> {{ step }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="mb-0">No roadmap available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Resume Analysis -->
+        <div class="section-card">
+            <div class="section-header bg-success">
+                <i class="bi bi-file-earmark-text-fill"></i> Resume Analysis
+            </div>
+            <div class="section-body">
+
+                <h5>Resume Score</h5>
+                <div class="progress mb-4" style="height:25px;">
+                    <div class="progress-bar bg-success"
+                         style="width: {{ analysis.resume_score or 0 }}%;">
+                        {{ analysis.resume_score or 0 }}%
+                    </div>
+                </div>
+
+                <h5>Detected Skills</h5>
+                {% if analysis.resume_skills %}
+                    {% for skill in analysis.resume_skills %}
+                        <span class="badge bg-success m-1">{{ skill }}</span>
+                    {% endfor %}
+                {% else %}
+                    <p>No skills detected.</p>
+                {% endif %}
+
+                <hr>
+
+                <h5>Missing Skills</h5>
+                {% if analysis.missing_skills %}
+                    {% for skill in analysis.missing_skills %}
+                        <span class="badge bg-danger m-1">{{ skill }}</span>
+                    {% endfor %}
+                {% else %}
+                    <p>No missing skills.</p>
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% else %}
+
+        <!-- No analysis yet -->
+        <div class="alert alert-info text-center p-5">
+            <h3>No Career Analysis Found</h3>
+            <p>Analyze your career profile to see recommendations.</p>
+            <a href="/profile" class="btn btn-primary">Analyze Now</a>
+        </div>
+
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 text-muted">
+        <hr>
+        <p>
+            CareerPilot AI © 2026<br>
+            Built with ❤️ using Flask, MongoDB & Gemini AI
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+</body>
+</html>

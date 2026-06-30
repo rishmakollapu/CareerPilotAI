@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>CareerPilot AI Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<h1>🚀 CareerPilot AI Dashboard</h1>
+
+<div class="card">
+
+<h2>{{ name }}</h2>
+
+<p>{{ degree }} | {{ branch }} | Year {{ year }}</p>
+
+<p><strong>Career Goal:</strong> {{ career }}</p>
+
+</div>
+
+<div class="card">
+
+<h2>📈 Career Readiness</h2>
+
+<h1>{{ score }}%</h1>
+
+<progress value="{{ score }}" max="100"></progress>
+
+</div>
+
+<div class="card">
+
+<h2>❌ Missing Skills</h2>
+
+<ul>
+
+{% for skill in missing_skills %}
+
+<li>{{ skill }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>📅 Learning Roadmap</h2>
+
+<ol>
+
+{% for week in roadmap %}
+
+<li>{{ week }}</li>
+
+{% endfor %}
+
+</ol>
+
+</div>
+
+<div class="card">
+
+<h2>💻 Recommended Projects</h2>
+
+<ul>
+
+{% for project in projects %}
+
+<li>{{ project }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>📚 Recommended Courses</h2>
+
+<ul>
+
+{% for course in courses %}
+
+<li>{{ course }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>🤖 AI Career Mentor</h2>
+
+<div style="white-space: pre-wrap; line-height:1.8;">
+
+{{ ai_advice }}
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
